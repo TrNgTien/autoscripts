@@ -1,0 +1,59 @@
+# git
+alias gi="git init"
+alias gd="git diff"
+alias gst="git status"
+alias gcm="git commit -m"
+alias gm="git merge"
+
+alias gsl="git stash list"
+alias gsv="git stash save"
+alias gsp="git stash pop"
+
+alias gutk="git update-index --assume-unchanged"
+alias gtk="git update-index --no-assume-unchanged"
+
+alias gaa="git add ."
+alias ga="git add "
+alias gb='git branch'
+alias gbd='git branch -D'
+alias gp="git push"
+alias ggpush='git push origin "$(git_current_branch)"'
+alias gpl="git pull"
+alias ggpull='git pull origin "$(git_current_branch)"'
+alias gc="git checkout"
+alias gcb="git checkout -b"
+
+# navigate
+alias ~="cd ~"
+alias ..="cd ../"
+alias ..2="cd ../../"
+alias ..3="cd ../../../"
+alias ..4="cd ../../../../"
+alias cdmt="cd ~/Workspaces/save/minimal-tech"
+alias cdtnt="cd ~/Workspaces/save/tnt"
+alias cddocs="cd ~/Documents"
+alias cdthesis="cd ~/Documents/Thesis"
+alias vconf="cd ~/.config/nvim"
+
+# process
+alias kp="kill -9"
+
+
+# docker
+alias dpa="docker ps -a"
+alias dps="docker ps"
+alias dimg="docker images"
+alias dl="docker logs -f"
+
+# k8s
+
+alias kubeget="kubectl get"
+
+#nvim
+alias nv="nvim ."
+
+
+alias meta="/opt/metasploit-framework/bin/msfconsole"
+alias ssh_docker="ssh root@tien_ras -L 0.0.0.0:5433:0.0.0.0:5433 -L 0.0.0.0:7710:0.0.0.0:7701 -L 0.0.0.0:6379:0.0.0.0:6379"
+
+alias ssh_gcp="ssh tntien_gdsciu@34.87.65.211"
