@@ -1,10 +1,12 @@
 #!/bin/sh
 
 # Add Docker's official GPG key:
+echo "[Updating]"
 sudo apt-get update
 
 sudo apt-get install ca-certificates curl
 
+echo "[Installing] Docker"
 sudo install -m 0755 -d /etc/apt/keyrings
 
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
@@ -17,12 +19,15 @@ echo \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-echo "Install ZSH"
+echo "[Installing] ZSH"
 
 sudo apt install zsh
 
-echo "Install OH MY ZSH"
+echo "[Installing] OH MY ZSH"
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -Y
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+
+echo "[INSTALLING] Docker"
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -Y
