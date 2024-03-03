@@ -1,32 +1,24 @@
-echo "Install nvim"
+#!/bin/sh
 
+echo "Install nvim"
 brew install nvim
 
 
 echo "Install vim plug"
-
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 echo "Install ripgrep"
-
 brew install ripgrep
 
 
-echo "Install nvim config"
-
-cd ~/.config
-
-git clone https://github.com/TrNgTien/nvim-config.git
-
-mv nvim-config nvim
-
-nvim .
-
-
 echo "Install ALACRITTY"
-
 brew install --cask alacritty
+
+
+echo "Install TMUX"
+brew install tmux
+
 
 # ------------------------------------------------------------------
 BASE_FOLDER=$(pwd)
@@ -55,5 +47,13 @@ else
   ln -s "$BASE_FOLDER/confs/alacritty" "$HOME/.config/alacritty"
 fi
 
-echo "Successfully configure all dotfiles!"
-exit 0
+echo "Install nvim config"
+
+cd ~/.config
+
+git clone https://github.com/TrNgTien/nvim-config.git
+
+mv nvim-config nvim
+
+nvim .
+
