@@ -6,6 +6,8 @@ sudo apt-get update
 
 sudo apt-get install ca-certificates curl
 
+sudo apt-get install htop
+
 echo "[Installing] Docker"
 sudo install -m 0755 -d /etc/apt/keyrings
 
