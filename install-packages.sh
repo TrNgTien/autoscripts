@@ -36,6 +36,8 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 echo "[INSTALLING] nvm"
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 
-source ~/.profile
+source ~/.zshrc
+
+nvm -v
 
 nvm install v18.17.0
