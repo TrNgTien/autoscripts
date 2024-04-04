@@ -38,6 +38,14 @@ curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 
 source ~/.zshrc
 
+
 nvm -v
 
+# Make source nvm can install node
+apt install libatomic1
+
 nvm install v18.17.0
+
+echo "[INSTALLING] zsh auto suggestion"
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
