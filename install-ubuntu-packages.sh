@@ -49,3 +49,6 @@ nvm install v18.17.0
 echo "[INSTALLING] zsh auto suggestion"
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+echo "[INSTALLING] zsh syntax highlighting plugin"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
