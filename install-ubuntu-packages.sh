@@ -31,7 +31,12 @@ echo \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -Y
+sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+echo "[DOCKER] verify docker run"
+sudo docker run hello-world
 
 echo "[INSTALLING] nvm"
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
@@ -42,9 +47,9 @@ source ~/.zshrc
 nvm -v
 
 # Make source nvm can install node
-apt install libatomic1
+sudo apt install libatomic1
 
-nvm install v18.17.0
+nvm install v18.18.0
 
 echo "[INSTALLING] zsh auto suggestion"
 
