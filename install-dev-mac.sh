@@ -12,13 +12,6 @@ echo "Install ripgrep"
 brew install ripgrep
 
 
-echo "Install ALACRITTY"
-brew install --cask alacritty
-
-
-echo "Install TMUX"
-brew install tmux
-
 
 # ------------------------------------------------------------------
 BASE_FOLDER=$(pwd)
@@ -31,22 +24,6 @@ ln -s "$BASE_FOLDER/confs/zsh/.zshrc" "$HOME/.zshrc"
 ln -s "$BASE_FOLDER/confs/zsh/.zsh_aliases" "$HOME/.zsh_aliases"
 
 
-# ------------------------------------------------------------------
-echo "Configuring TMUX..."
-ln -s "$BASE_FOLDER/confs/tmux/.tmux.conf" "$HOME/.tmux.conf"
-
-# ------------------------------------------------------------------
-echo "Configuring ALACRITTY..."
-is_alacritty_available=$(command -v alacritty > /dev/null)
-
-if ! $is_alacritty_available; then
-  echo "ALACRITTY is not installed"
-  exit 1
-else
-  echo "ALACRITTY is installed | Start configuring..."
-  ln -s "$BASE_FOLDER/confs/alacritty" "$HOME/.config/alacritty"
-fi
-
 echo "Install nvim config"
 
 cd ~/.config
@@ -57,3 +34,10 @@ mv nvim-config nvim
 
 nvim .
 
+
+echo "[INSTALLING] zsh auto suggestion"
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+echo "[INSTALLING] zsh syntax highlighting plugin"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
