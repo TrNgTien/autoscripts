@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  mongo-local:
+    image: "mongo:6.0.21-jammy"
+    container_name: "mongo-local"
+    restart: "always"
+    volumes:
+      - ./volumes/mongo-local:/data/db
+    ports:
+      - "27017:27017"
+
+  redis-local:
+    image: "redis:7.4.2-bookworm"
+    container_name: "redis-local"
+    restart: "always"
+    volumes:
+      - ./volumes/redis:/data
+    ports:
+      - "6379:6379"
+
+  rabbitmq-local:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"  # Management UI
+    restart: unless-stopped
+
+  psql-local:
+    image: "bitnami/postgresql:16"
+    container_name: psql_local
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=tientn
+      - POSTGRESQL_PASSWORD=tientn123
+      - POSTGRESQL_DATABASE=local
+    volumes:
+      - ./volumes/pg-data:/bitnami/postgresql
+      - /etc/localtime:/etc/localtime:ro
